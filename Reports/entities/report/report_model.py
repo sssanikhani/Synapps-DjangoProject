@@ -33,6 +33,6 @@ class Report(models.Model):
     )
 
     content = models.CharField(max_length=500)
-    report_time = models.DateTimeField()
+    report_time = models.DateTimeField(verbose_name='reported')
     requester = models.CharField(max_length=50)
     provider = models.CharField(max_length=50)

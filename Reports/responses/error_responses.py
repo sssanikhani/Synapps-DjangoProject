@@ -3,6 +3,14 @@ from rest_framework import status
 
 
 class ErrorResponses:
+
+    def __init__(self):
+        self.UNAUTHORIZED = self._err_unauthorized()
+        self.FORBIDDEN = self._err_forbidden()
+        self.REPORT_NOT_FOUND = self._err_report_not_found()
+        self.BAD_REQUEST = self._err_bad_request()
+        self.BAD_PAGINATION = self._err_bad_pagination()
+
     @staticmethod
     def _err_unauthorized():
         error = {
@@ -27,6 +35,18 @@ class ErrorResponses:
         }
         return Response(status=status.HTTP_404_NOT_FOUND, data=error)
 
-    Unauthorized = _err_unauthorized
-    Forbidden = _err_forbidden
-    ReportNotFound = _err_report_not_found
+    @staticmethod
+    def _err_bad_request():
+        error = {
+            'code': "E_BAD_REQUEST",
+            'message': "some parameters are not in true form"
+        }
+        return Response(status=status.HTTP_400_BAD_REQUEST, data=error)
+
+    @staticmethod
+    def _err_bad_pagination():
+        error = {
+            'code': "E_BAD_PAGINATION",
+            'message': "limit or offset or both parameters are wrong"
+        }
+        return Response(status=status.HTTP_400_BAD_REQUEST, data=error)
