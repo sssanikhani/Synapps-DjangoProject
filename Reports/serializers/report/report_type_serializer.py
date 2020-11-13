@@ -1,13 +1,23 @@
-from rest_framework.serializers import ModelSerializer
-from Reports.serializers.base_serializer import BaseSerializer
+from rest_framework import serializers
 from Reports.entities.report.report_type_model import ReportType
 
 
-class ReportTypeSerializer(ModelSerializer, BaseSerializer):
+class ReportTypeSerializer(serializers.ModelSerializer):
     
     class Meta:
         model = ReportType
         fields = (
-            'pid',
+            'id',
             'name',
         )
+    id = serializers.CharField(source='pid')
+
+
+class ReportTypeShallowSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = ReportType
+        fields = (
+            'id'
+        )
+    id = serializers.CharField(source='pid')

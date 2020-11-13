@@ -13,7 +13,7 @@ class Report(models.Model):
     submitter = models.ForeignKey(
         to=User,
         on_delete=models.CASCADE,
-        blank=False,
+        blank=True,
         null=False,
         related_name='reports',
         related_query_name='reports'

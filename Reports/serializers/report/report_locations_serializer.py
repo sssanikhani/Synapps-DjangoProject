@@ -1,13 +1,23 @@
-from rest_framework.serializers import ModelSerializer
-from Reports.serializers.base_serializer import BaseSerializer
+from rest_framework import serializers
 from Reports.entities.report.report_location_model import ReportLocation
 
 
-class ReportLocationsSerializer(ModelSerializer, BaseSerializer):
+class ReportLocationsSerializer(serializers.ModelSerializer):
     
     class Meta:
         model = ReportLocation
         fields = (
-            'pid',
+            'id',
             'name',
         )
+    id = serializers.CharField(source='pid')
+
+
+class ReportLocationShallowSerializer(serializers.ModelSerializer):
+    
+    class Meta:
+        model = ReportLocation
+        fields = (
+            'id'
+        )
+    id = serializers.CharField(source='pid')
