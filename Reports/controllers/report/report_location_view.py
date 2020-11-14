@@ -1,6 +1,6 @@
 from rest_framework.views import APIView
 from rest_framework.pagination import LimitOffsetPagination
-from Reports.dal.report_location_dal import ReportLocationDal
+from Reports.dal.report.report_location_dal import ReportLocationDal
 from Reports.responses.error_responses import ErrorResponses
 from Reports.serializers.report.report_locations_serializer import ReportLocationsSerializer
 
