@@ -5,39 +5,79 @@ from Reports.controllers.report.reports_list_view import ReportView
 from Reports.controllers.report.particular_report_view import ParticularReportView
 from Reports.controllers.report.report_type_view import ReportTypeView
 from Reports.controllers.report.report_location_view import ReportLocationView
+from Reports.controllers.media.report_image_view import (
+    ReportAddImageView,
+    ReportDeleteImageView
+)
 
 authorization_urlpatterns = [
 
     # POST
-    path('user/auth/token/', jwt_views.TokenObtainPairView.as_view(), name='pair token'),
+    path(
+        'user/auth/token/', 
+        jwt_views.TokenObtainPairView.as_view(), 
+        name='pair token'
+    ),
     
     # POST
-    path('user/auth/refresh/', jwt_views.TokenRefreshView.as_view(), name='refresh token'),
+    path(
+        'user/auth/refresh/', 
+        jwt_views.TokenRefreshView.as_view(), 
+        name='refresh token'
+    ),
     
     # POST
-    path('user/auth/logout/', LogoutView.as_view(), name='logout'),
+    path(
+        'user/auth/logout/', 
+        LogoutView.as_view(), 
+        name='logout'
+    ),
 
 ]
 
 report_urlpatterns = [
 
     # POST, GET
-    path('report/', ReportView.as_view(), name='reports'),
+    path(
+        'report/', 
+        ReportView.as_view(), 
+        name='reports'
+    ),
     
     # GET, DELETE, PUT
-    path('report/<int:report_id>/', ParticularReportView.as_view(), name='particular report'),
+    path(
+        'report/<int:report_id>/', 
+        ParticularReportView.as_view(), 
+        name='particular report'
+    ),
 
     # POST
-    # path('report/<int:report_id>/image/', , name='upload report image'),
+    path(
+        'report/<int:report_id>/image/', 
+        ReportAddImageView.as_view(), 
+        name='upload report image'
+    ),
 
     #DELETE
-    # path('report/<int:report_id>/image/<int:image_id>/', , name='delete image'),
+    path(
+        'report/<int:report_id>/image/<int:image_id>/', 
+        ReportDeleteImageView.as_view(), 
+        name='delete image'
+    ),
 
     #GET
-    path('report/type/', ReportTypeView.as_view(), name='report types'),
+    path(
+        'report/type/', 
+        ReportTypeView.as_view(), 
+        name='report types'
+    ),
 
     #GET
-    path('report/location/', ReportLocationView.as_view(), name='report locations'),
+    path(
+        'report/location/', 
+        ReportLocationView.as_view(), 
+        name='report locations'
+    ),
 
 ]
 

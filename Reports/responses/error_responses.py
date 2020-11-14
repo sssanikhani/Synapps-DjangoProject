@@ -10,6 +10,8 @@ class ErrorResponses:
         self.REPORT_NOT_FOUND = self._err_report_not_found()
         self.BAD_REQUEST = self._err_bad_request()
         self.BAD_PAGINATION = self._err_bad_pagination()
+        self.NOT_ACCEPTABLE = self._err_not_acceptable()
+        self.NOT_FOUND = self._err_not_found()
 
     @staticmethod
     def _err_unauthorized():
@@ -50,3 +52,18 @@ class ErrorResponses:
             'message': "limit or offset or both parameters are wrong"
         }
         return Response(status=status.HTTP_400_BAD_REQUEST, data=error)
+
+    @staticmethod
+    def _err_not_acceptable():
+        error = {
+            'code': "E_NOT_ACCEPTABLE",
+            'message': "some parameters do not match"
+        }
+        return error
+    
+    @staticmethod
+    def _err_not_found():
+        error = {
+            'code': "E_NOT_FOUND",
+            'message': "nothing found based on your request parameters"
+        }
