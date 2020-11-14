@@ -10,6 +10,7 @@ from Reports.serializers.report.report_locations_serializer import (
     ReportLocationsSerializer, 
     ReportLocationShallowSerializer,
 )
+from Reports.serializers.media.report_image_serializer import ReportImageSerializer
 from Reports.serializers.authorization.user_shallow_serializer import UserShallowSerializer
 
 
@@ -43,9 +44,11 @@ class ReportDeepSerializer(serializers.ModelSerializer):
             'reported',
             'requester',
             'provider',
+            'images',
         )
 
     submitter = UserShallowSerializer(read_only=True)
     report_type = ReportTypeSerializer(read_only=True)
     locations = ReportLocationsSerializer(read_only=True, many=True, source='report_locations')
     reported = serializers.DateTimeField(source='report_time')
+    images = ReportImageSerializer(many=True)

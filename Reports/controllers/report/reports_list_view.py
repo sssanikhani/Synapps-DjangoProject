@@ -4,7 +4,7 @@ from rest_framework.pagination import LimitOffsetPagination
 from rest_framework.response import Response
 from rest_framework.exceptions import ParseError
 from rest_framework import status
-from Reports.dal.report_dal import ReportDal
+from Reports.dal.report.report_dal import ReportDal
 from Reports.serializers.report.report_serializers import ReportDeepSerializer, ReportSerializer
 
 class ReportView(APIView):

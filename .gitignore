@@ -28,8 +28,8 @@ __pycache__
 
 # media files #
 ###############
-./media/*
-./media-files/*
+/media
+/media-files/*
 
 # Logs and databases #
 ######################

@@ -2,7 +2,7 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.pagination import LimitOffsetPagination
-from Reports.dal.report_type_dal import ReportTypeDal
+from Reports.dal.report.report_type_dal import ReportTypeDal
 from Reports.serializers.report.report_type_serializer import ReportTypeSerializer
 from Reports.responses.error_responses import ErrorResponses
 

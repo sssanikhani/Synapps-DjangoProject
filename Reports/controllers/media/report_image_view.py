@@ -5,8 +5,8 @@ from rest_framework import status
 from rest_framework.exceptions import NotAcceptable
 from Reports.entities.media.report_image_model import ReportImage
 from Reports.responses.error_responses import ErrorResponses
-from Reports.dal.report_dal import ReportDal
-from Reports.dal.report_image_dal import ReportImageDal
+from Reports.dal.report.report_dal import ReportDal
+from Reports.dal.media.report_image_dal import ReportImageDal
 from Reports.serializers.media.report_image_serializer import AddReportImageSerializer
 from Reports.serializers.report.report_serializers import ReportDeepSerializer
 
